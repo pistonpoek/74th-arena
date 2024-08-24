@@ -56,7 +56,23 @@ At any moment the arena can be reset to allow for a new match to ready itself. D
 ![campfire](images/campfire.png)
 *Outer area of the arena with a campfire next to a creek*
 
+# Data packs
+
+## Arena action
+The [arena action](world/datapacks/arena_action_v1.9) data pack manages player related functionality for the arena.
+
+## Arena elevator
+The [arena elevator](world/datapacks/arena_elevator_v1.13) data pack manages player related functionality for the arena.
+
+## Arena item
+The [arena item](world/datapacks/arena_item_v1.12) data pack manages player related functionality for the arena.
+
+## Arena world
+The [arena world](world/datapacks/arena_world_v1.13) data pack contains functionality for controlling the world for the arena.
+
+
 # Controls
+Various function of the [data packs](#data-packs)
 
 ## Players
 The [arena action](world/datapacks/arena_action_v1.9/) includes functions to manage players for the arena.
@@ -67,13 +83,13 @@ In order to differentiate between players and moderators there are two roles. Th
 ### Sponsering
 For making sponsering of players easier during a physical local server event some function are available. The [select function](#select-function) can be used to select the currently held item as the item to sponsor, which can be followed by the [receive function](#receive-function) to give the player executing the function the currently selected item. As a one command option the [give function](#give-function) allows a gamemaker to give the currently held item to the player with the specified name.
 
-#### Select function
+#### [Select function](world/datapacks/arena_action_v1.9/data/arena_action/function/sponsor/select.mcfunction)
     \function arena_action:sponsor\select
 
-#### Receive function
+#### [Select function](world/datapacks/arena_action_v1.9/data/arena_action/function/sponsor/receive.mcfunction)
     \function arena_action:sponsor\receive
 
-#### Give function
+#### [Give function](world/datapacks/arena_action_v1.9/data/arena_action/function/sponsor/give.mcfunction)
     \function arena_action:sponsor\give {name:%player_name%}
 
 ## Triggers
@@ -92,12 +108,12 @@ Starts the arena by teleporting tributes to the start position markers in the ar
 Announces the winner of the games by checking for alive tributes. Additionally the spectating tributes are teleported to spectate the victor.
 
 ## Placing world objects
-Special objects can be placed in the arena using the [arena world](world/datapacks/arena_world_v1.13/) data pack. The objects, `berry_bush`, `campfire`, `countdown`, `elevator`, `loot`, `start_position` and `token` can be made using the following function by replacing the respective name.
+Special objects can be placed in the arena using the [arena world](world/datapacks/arena_world_v1.13/) data pack. The objects, [`berry_bush`](world/datapacks/arena_world_v1.13/data/arena_world/function/berry_bush/make.mcfunction), `campfire`, `countdown`, `elevator`, `loot`, `start_position` and `token` can be made using the following function by replacing the respective name.
 
 #### Make function
     \function arena_world:[name]/make
 
-Further more animal spawn location can be marked by using the following command for either a `land` or `water` spawn position.
+Further more animal spawn location can be marked by using the following command for either a [`land`](world/datapacks/arena_world_v1.13/data/arena_world/function/animal/land.mcfunction) or [`water`]((world/datapacks/arena_world_v1.13/data/arena_world/function/animal/water.mcfunction)) spawn position.
 
 #### Mark animal spawn location
     \function arena_world:animal/[land | water]
@@ -105,7 +121,8 @@ Further more animal spawn location can be marked by using the following command 
 ## Additional functions
 
 Other functions that can be used from the data pack include a function to spawn an angry wolf as a threat to the players.
-#### Spawn threat
+
+#### [Spawn threat function](world/datapacks/arena_world_v1.13/data/arena_world/function/threat/wolf/spawn.mcfunction)
     \function arena_world:threat\wolf\spawn
 
 
