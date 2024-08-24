@@ -4,6 +4,7 @@
  - [Overview](#overview)
  - [Terrain](#terrain)
  - [Features](#features)
+ - [Data packs](#data-packs)
  - [Controls](#controls)
 
 -----------------------------
@@ -136,15 +137,18 @@ Starts the arena by teleporting tributes to the start position markers in the ar
 Announces the winner of the games by checking for alive tributes. Additionally the spectating tributes are teleported to spectate the victor.
 
 ## Placing world objects
-Special objects can be placed in the arena using the [arena world](#arena-world) data pack. The objects, [`berry_bush`](world/datapacks/arena_world_v1.13/data/arena_world/function/berry_bush/make.mcfunction), [`campfire`](world/datapacks/arena_world_v1.13/data/arena_world/function/campfire/make.mcfunction), [`countdown`](world/datapacks/arena_world_v1.13/data/arena_world/function/countdown/make.mcfunction), [`elevator`](world/datapacks/arena_world_v1.13/data/arena_world/function/elevator/make.mcfunction), [`loot`]((world/datapacks/arena_world_v1.13/data/arena_world/function/loot/make.mcfunction)), [`start_position`](world/datapacks/arena_world_v1.13/data/arena_world/function/start_position/make.mcfunction) and [`token`](world/datapacks/arena_world_v1.13/data/arena_world/function/token/make.mcfunction) can be made using the following function by replacing the respective name.
+Special objects can be placed in the arena using the [arena world](#arena-world) data pack. The objects, [`berry_bush`](world/datapacks/arena_world_v1.13/data/arena_world/function/berry_bush/make.mcfunction), [`campfire`](world/datapacks/arena_world_v1.13/data/arena_world/function/campfire/make.mcfunction), [`countdown`](world/datapacks/arena_world_v1.13/data/arena_world/function/countdown/make.mcfunction), [`elevator`](world/datapacks/arena_world_v1.13/data/arena_world/function/elevator/make.mcfunction), [`loot`](world/datapacks/arena_world_v1.13/data/arena_world/function/loot/make.mcfunction), [`start_position`](world/datapacks/arena_world_v1.13/data/arena_world/function/start_position/make.mcfunction) and [`token`](world/datapacks/arena_world_v1.13/data/arena_world/function/token/make.mcfunction) can be made using the following function by replacing the respective name.
 
 #### Make function
-    /function arena_world:[name]/make
+    /function arena_world:name/make
 
-Further more animal spawn location can be marked by using the following command for either a [`land`](world/datapacks/arena_world_v1.13/data/arena_world/function/animal/land.mcfunction) or [`water`]((world/datapacks/arena_world_v1.13/data/arena_world/function/animal/water.mcfunction)) spawn position.
+Further more animal spawn location can be marked by using the following command for either a [`land`](#animal-land-function) or [`water`](#animal-water-function) spawn position.
 
-#### Mark animal spawn location
-    /function arena_world:animal/[land | water]
+#### [Animal land function](world/datapacks/arena_world_v1.13/data/arena_world/function/animal/land.mcfunction)
+    /function arena_world:animal/land
+
+#### [Animal water function](world/datapacks/arena_world_v1.13/data/arena_world/function/animal/water.mcfunction)
+    /function arena_world:animal/water
 
 ## Adjust data
 The [data packs](#data-packs) set default data that can be adjusted manually. Changing data is completly optional, but allows modification of behavior without having to modify the data pack files. Data that can be adjusted can be inspected by running the `/data get storage` command.
