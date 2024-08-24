@@ -55,28 +55,37 @@ At any moment the arena can be reset to allow for a new match to ready itself. D
 *Outer area of the arena with a campfire next to a creek*
 
 # Data packs
-Four data packs are combined for the use in the arena. The [arena elevator](#arena-elevator) and [arena item](#arena-elevator) data pack could be used separately for their functionality.
+Four data packs are combined for the use in the arena. The [arena elevator](#arena-elevator) and [arena item](#arena-elevator) data pack could be used separately for their functionality. Some functionality of the data packs can be altered by [adjusting data](#adjust-data) in game.
 
 ## Arena action
 The [arena action](world/datapacks/arena_action_v1.9) data pack manages player related functionality for the arena. The data pack allows [players](#players) to be given a tribute or gamemaker [role](#roles). Gamemakers are able to [trigger](#triggers) actions for the arena to take. Lastly gamemakers can manage [sponsering](#sponsering) for the tributes.
 
 ## Arena elevator
-The [arena elevator](world/datapacks/arena_elevator_v1.13) data pack provides an elevator for the arena. An elevator can be [created](#create-function) and [removed](#remove-function). Of course an elevator can also [lift](#lift-function) players inside.
+The [arena elevator](world/datapacks/arena_elevator_v1.13) data pack provides an elevator for the arena. An elevator can be [created](#create-elevator-function) and [removed](#remove-elevator-function). Of course an elevator can also [lift](#lift-function) players inside.
 
-#### [Create function](world/datapacks/arena_elevator_v1.13/data/arena_elevator/function/create.mcfunction)
-    \execute positioned ~ ~ ~ arena_world:create {block:$block_name%, height:%height%}
+#### [Create elevator function](world/datapacks/arena_elevator_v1.13/data/arena_elevator/function/create.mcfunction)
+    /execute positioned ~ ~ ~ arena_world:create {block:$block_name%, height:%height%}
 
-#### [Remove function](world/datapacks/arena_elevator_v1.13/data/arena_elevator/function/remove.mcfunction)
-    \execute as @n[predicate=arena_elevator:arena_elevator] run function arena_elevator:remove
+#### [Remove elevator function](world/datapacks/arena_elevator_v1.13/data/arena_elevator/function/remove.mcfunction)
+    /execute as @n[predicate=arena_elevator:arena_elevator] run function arena_elevator:remove
 
 #### [Lift function](world/datapacks/arena_elevator_v1.13/data/arena_elevator/function/lift.mcfunction)
-    \execute as @n[predicate=arena_elevator:arena_elevator] run function arena_elevator:lift
+    /execute as @n[predicate=arena_elevator:arena_elevator] run function arena_elevator:lift
 
 ## Arena item
-The [arena item](world/datapacks/arena_item_v1.12) data pack provides visible items for the arena.
+The [arena item](world/datapacks/arena_item_v1.12) data pack provides visible items for the arena. Items can be [created](#create-item-function) and [removed](#remove-item-function). For each created item an item display can have its item be [replaced](#replace-function) to change what item can be picked up by a player.
+
+#### [Create item function](world/datapacks/arena_item_v1.12/data/arena_item/function/create.mcfunction)
+    /function arena_item:create
+
+#### [Remove item function](world/datapacks/arena_item_v1.12/data/arena_item/function/remove.mcfunction)
+    /execute as @n[predicate=arena_item:arena_item] run function arena_item:remove
+
+#### [Replace function](world/datapacks/arena_elevator_v1.13/data/arena_elevator/function/lift.mcfunction)
+    /execute as @n[predicate=arena_item:arena_item_display] run loot replace entity @s contents loot arena_world:arena_loot
 
 ## Arena world
-The [arena world](world/datapacks/arena_world_v1.13) data pack contains functionality for controlling the world for the arena.
+The [arena world](world/datapacks/arena_world_v1.13) data pack contains functionality for controlling the world for the arena. Most importantly this data pack can be used to [place world objects](#placing-world-objects).
 
 # Controls
 Various function of the [data packs](#data-packs) can be used to setup and manage the arena.
@@ -88,28 +97,28 @@ The [arena action](#arena-action) includes functions to manage players for the a
 In order to differentiate between players and moderators there are two roles. The tribute and gamemaker role can both be altered for a player by executing the [tribute add](#tribute-add-function), [tribute remove](#tribute-remove-function), [gamemaker add](#gamemaker-add-function) or [gamemaker remove](#gamemaker-remove-function) function.
 
 #### [Tribute add function](world/datapacks/arena_action_v1.9/data/arena_action/function/tribute/add.mcfunction)
-    \function arena_action:tribute\add
+    /function arena_action:tribute/add
 
 #### [Tribute remove function](world/datapacks/arena_action_v1.9/data/arena_action/function/tribute/remove.mcfunction)
-    \function arena_action:tribute\remove
+    /function arena_action:tribute/remove
 
 #### [Gamemaker add function](world/datapacks/arena_action_v1.9/data/arena_action/function/gamemaker/add.mcfunction)
-    \function arena_action:gamemaker\add
+    /function arena_action:gamemaker/add
 
 #### [Gamemaker remove function](world/datapacks/arena_action_v1.9/data/arena_action/function/gamemaker/remove.mcfunction)
-    \function arena_action:gamemaker\remove
+    /function arena_action:gamemaker/remove
 
 ### Sponsering
 For making sponsering of players easier during a physical local server event some function are available. The [select function](#select-function) can be used to select the currently held item as the item to sponsor, which can be followed by the [receive function](#receive-function) to give the player executing the function the currently selected item. As a one command option the [give function](#give-function) allows a gamemaker to give the currently held item to the player with the specified name.
 
 #### [Select function](world/datapacks/arena_action_v1.9/data/arena_action/function/sponsor/select.mcfunction)
-    \function arena_action:sponsor\select
+    /function arena_action:sponsor/select
 
 #### [Receive function](world/datapacks/arena_action_v1.9/data/arena_action/function/sponsor/receive.mcfunction)
-    \function arena_action:sponsor\receive
+    /function arena_action:sponsor/receive
 
 #### [Give function](world/datapacks/arena_action_v1.9/data/arena_action/function/sponsor/give.mcfunction)
-    \function arena_action:sponsor\give {name:%player_name%}
+    /function arena_action:sponsor/give {name:%player_name%}
 
 ## Triggers
 In order to ease the control of the arena the following triggers are made for gamemakers to use. The [arena action](#arena-action) will take care to update the state of the arena accordingly.
@@ -130,22 +139,22 @@ Announces the winner of the games by checking for alive tributes. Additionally t
 Special objects can be placed in the arena using the [arena world](#arena-world) data pack. The objects, [`berry_bush`](world/datapacks/arena_world_v1.13/data/arena_world/function/berry_bush/make.mcfunction), [`campfire`](world/datapacks/arena_world_v1.13/data/arena_world/function/campfire/make.mcfunction), [`countdown`](world/datapacks/arena_world_v1.13/data/arena_world/function/countdown/make.mcfunction), [`elevator`](world/datapacks/arena_world_v1.13/data/arena_world/function/elevator/make.mcfunction), [`loot`]((world/datapacks/arena_world_v1.13/data/arena_world/function/loot/make.mcfunction)), [`start_position`](world/datapacks/arena_world_v1.13/data/arena_world/function/start_position/make.mcfunction) and [`token`](world/datapacks/arena_world_v1.13/data/arena_world/function/token/make.mcfunction) can be made using the following function by replacing the respective name.
 
 #### Make function
-    \function arena_world:[name]/make
+    /function arena_world:[name]/make
 
 Further more animal spawn location can be marked by using the following command for either a [`land`](world/datapacks/arena_world_v1.13/data/arena_world/function/animal/land.mcfunction) or [`water`]((world/datapacks/arena_world_v1.13/data/arena_world/function/animal/water.mcfunction)) spawn position.
 
 #### Mark animal spawn location
-    \function arena_world:animal/[land | water]
+    /function arena_world:animal/[land | water]
 
 ## Adjust data
-The [data packs](#data-packs) set default data that can be adjusted manually. Changing data is completly optional, but allows modification of behavior without having to modify the data pack files. Data that can be adjusted can be inspected by running the `\data get storage` command.
+The [data packs](#data-packs) set default data that can be adjusted manually. Changing data is completly optional, but allows modification of behavior without having to modify the data pack files. Data that can be adjusted can be inspected by running the `/data get storage` command.
 
 ## Additional functions
 
 Other functions that can be used from the [data packs](#data-packs) include a function to spawn an angry wolf as a threat to the players.
 
 #### [Spawn threat function](world/datapacks/arena_world_v1.13/data/arena_world/function/threat/wolf/spawn.mcfunction)
-    \function arena_world:threat\wolf\spawn
+    /function arena_world:threat/wolf/spawn
 
 
 [^1]: I would be pleased to hear better references to the originial world author Flashness or the original upload for the world used.
