@@ -1,0 +1,35 @@
+{
+    "type": "minecraft:generic",
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:lingering_potion",
+                    "functions": [
+                        {
+                            "function": "minecraft:set_potion",
+                            "id": "minecraft:invisibility"
+                        },
+                        {
+                            "function": "minecraft:set_lore",
+                            "lore": [
+                                {
+                                    "text": "Apply camouflage (00:45)",
+                                    "color": "blue",
+                                    "italic": false
+                                }
+                            ],
+                            "mode": "replace_all"
+                        },
+                        {
+                          "function": "minecraft:set_components",
+                          "components": {"hide_additional_tooltip":{}}
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

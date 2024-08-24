@@ -1,0 +1,46 @@
+{
+    "type": "minecraft:generic",
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:fire_charge",
+                    "functions": [
+                        {
+                            "function": "minecraft:set_lore",
+                            "lore": [
+                                {
+                                    "text": "Use to light campfire",
+                                    "color": "blue",
+                                    "italic": false
+                                },
+                                {
+                                    "text": "to cook food",
+                                    "color": "blue",
+                                    "italic": false
+                                }
+                            ],
+                            "mode": "replace_all"
+                        },
+                        {
+                            "function": "minecraft:set_components",
+                            "components": {
+                              "minecraft:can_place_on": {
+                                
+                                "predicates": [
+                                  {
+                                    "blocks": "campfire"
+                                  }
+                                ],
+                                "show_in_tooltip": false
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

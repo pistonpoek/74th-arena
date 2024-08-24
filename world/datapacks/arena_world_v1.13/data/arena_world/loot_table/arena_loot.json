@@ -1,0 +1,30 @@
+{
+    "type": "generic",
+    "pools": [
+      {
+        "rolls": 1,
+        "entries": [
+          {
+            "type": "loot_table",
+            "weight": 1,
+            "value": "arena_world:arena_loot/a_tier"
+          },
+          {
+            "type": "loot_table",
+            "weight": 3,
+            "value": "arena_world:arena_loot/b_tier"
+          },
+          {
+            "type": "loot_table",
+            "weight": 5,
+            "value": "arena_world:arena_loot/c_tier"
+          },
+          {
+            "type": "loot_table",
+            "weight": 10,
+            "value": "arena_world:arena_loot/d_tier"
+          }
+        ]
+      }
+    ]
+  }

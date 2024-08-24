@@ -1,0 +1,42 @@
+{
+    "type": "minecraft:generic",
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:potion",
+                    "functions": [
+                        {
+                            "function": "minecraft:set_potion",
+                            "id": "minecraft:healing"
+                        },
+                        {
+                            "function": "minecraft:set_lore",
+                            "lore": [
+                                [
+                                    {
+                                        "text": "Heals ",
+                                        "color": "blue",
+                                        "italic": false
+                                    },
+                                    {
+                                        "text": "❤❤",
+                                        "color": "red",
+                                        "italic": false
+                                    }
+                                ]
+                            ],
+                            "mode": "replace_all"
+                        },
+                        {
+                          "function": "minecraft:set_components",
+                          "components": {"hide_additional_tooltip":{}}
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
