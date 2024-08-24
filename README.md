@@ -73,7 +73,7 @@ The [arena elevator](world/datapacks/arena_elevator_v1.13) data pack provides an
     /execute as @n[predicate=arena_elevator:arena_elevator] run function arena_elevator:lift
 
 ## Arena item
-The [arena item](world/datapacks/arena_item_v1.12) data pack provides visible items for the arena. Items can be [created](#create-item-function) and [removed](#remove-item-function). For each created item an item display can have its item be [replaced](#replace-function) to change what item can be picked up by a player.
+The [arena item](world/datapacks/arena_item_v1.12) data pack provides visible items for the arena. Items can be [created](#create-item-function) and [removed](#remove-item-function). For each created item an item display can have its item be [replaced](#replace-command) to change what item can be picked up by a player.
 
 #### [Create item function](world/datapacks/arena_item_v1.12/data/arena_item/function/create.mcfunction)
     /function arena_item:create
@@ -81,7 +81,7 @@ The [arena item](world/datapacks/arena_item_v1.12) data pack provides visible it
 #### [Remove item function](world/datapacks/arena_item_v1.12/data/arena_item/function/remove.mcfunction)
     /execute as @n[predicate=arena_item:arena_item] run function arena_item:remove
 
-#### [Replace function](world/datapacks/arena_elevator_v1.13/data/arena_elevator/function/lift.mcfunction)
+#### Replace command
     /execute as @n[predicate=arena_item:arena_item_display] run loot replace entity @s contents loot arena_world:arena_loot
 
 ## Arena world
