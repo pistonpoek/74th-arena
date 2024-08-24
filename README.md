@@ -31,6 +31,8 @@ For dramatic effect tributes can be lifted into the arena using the tribute tube
 *Entrance of the tribute tube viewed from within the launch room*
 
 ## Start
+After starting the game players will be held back on the platforms until the countdown ends. The countdown is displayed visually in the world as seen in the following image. Both the start positions and the countdown can be [setup](#placing-world-objects) using the [arena world](#arena-world) data pack.
+
 ![platforms](images/platforms.png)
 *Platforms bend around the cornucopia center that has a countdown display upon it*
 
