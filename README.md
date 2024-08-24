@@ -9,10 +9,10 @@
 -----------------------------
 
 # Overview
-This repository contains a Minecraft world that is inspired by the 74th Hunger Games arena. The world has custom developed data packs for extended vanilla functionallity, such as working tribute tubes, no GUI loot items and more.
+This repository contains a [Minecraft](https://minecraft.wiki/w/Minecraft) world that is inspired by the [74th Hunger Games arena](https://thehungergames.fandom.com/wiki/74th_Hunger_Games_arena). The world has custom developed data packs for extended vanilla functionallity, such as working tribute tubes, no GUI loot items and more.
 
 # Terrain
-The original [world](https://www.9minecraft.net/the-hunger-games-arena-map) makes up the exterior terrain for the arena, which was made by Flashness[^1]. I extended the world with the underground catacombs and launch rooms for tributes to enter the arena from.
+The original [world](https://www.9minecraft.net/the-hunger-games-arena-map) makes up the exterior terrain for the arena, which was made by Flashness[^1]. I extended the world with the underground catacombs and launch rooms for tributes to enter the arena from as seen in the following images.
 
 ![catacombs](images/catacombs.png)
 *Hallway in the catacombs leading to the launch room of tribute 1*
@@ -20,17 +20,14 @@ The original [world](https://www.9minecraft.net/the-hunger-games-arena-map) make
 ![launch room](images/launch_room.png)
 *Launch room with door looking at a table that has a tribute token item placed upon it*
 
-
 # Features
+A full experience is created by combining data pack features that utilize vanilla game elements. Throughout a game experience the following features may be noticed.
 
 ## Launch
 For dramatic effect tributes can be lifted into the arena using the tribute tube. The [arena elevator](#arena-elevator) data pack is used to lift players. In the launch room players can enter the elevator as seen in the following image.
 
 ![tribute tube](images/tribute_tube.png)
 *Entrance of the tribute tube viewed from within the launch room*
-
-### Elevator
-
 
 ## Start
 ![platforms](images/platforms.png)
@@ -58,15 +55,25 @@ At any moment the arena can be reset to allow for a new match to ready itself. D
 *Outer area of the arena with a campfire next to a creek*
 
 # Data packs
+Four data packs are combined for the use in the arena. The [arena elevator](#arena-elevator) and [arena item](#arena-elevator) data pack could be used separately for their functionality.
 
 ## Arena action
-The [arena action](world/datapacks/arena_action_v1.9) data pack manages player related functionality for the arena.
+The [arena action](world/datapacks/arena_action_v1.9) data pack manages player related functionality for the arena. The data pack allows [players](#players) to be given a tribute or gamemaker [role](#roles). Gamemakers are able to [trigger](#triggers) actions for the arena to take. Lastly gamemakers can manage [sponsering](#sponsering) for the tributes.
 
 ## Arena elevator
-The [arena elevator](world/datapacks/arena_elevator_v1.13) data pack manages player related functionality for the arena.
+The [arena elevator](world/datapacks/arena_elevator_v1.13) data pack provides an elevator for the arena. An elevator can be [created](#create-function) and [removed](#remove-function). Of course an elevator can also [lift](#lift-function) players inside.
+
+#### [Create function](world/datapacks/arena_elevator_v1.13/data/arena_elevator/function/create.mcfunction)
+    \execute positioned ~ ~ ~ arena_world:create {block:$block_name%, height:%height%}
+
+#### [Remove function](world/datapacks/arena_elevator_v1.13/data/arena_elevator/function/remove.mcfunction)
+    \execute as @n[predicate=arena_elevator:arena_elevator] run function arena_elevator:remove
+
+#### [Lift function](world/datapacks/arena_elevator_v1.13/data/arena_elevator/function/lift.mcfunction)
+    \execute as @n[predicate=arena_elevator:arena_elevator] run function arena_elevator:lift
 
 ## Arena item
-The [arena item](world/datapacks/arena_item_v1.12) data pack manages player related functionality for the arena.
+The [arena item](world/datapacks/arena_item_v1.12) data pack provides visible items for the arena.
 
 ## Arena world
 The [arena world](world/datapacks/arena_world_v1.13) data pack contains functionality for controlling the world for the arena.
