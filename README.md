@@ -24,10 +24,12 @@ The original [world](https://www.9minecraft.net/the-hunger-games-arena-map) make
 # Features
 
 ## Launch
+For dramatic effect tributes can be lifted into the arena using the tribute tube. The [arena elevator](#arena-elevator) data pack is used to lift players. In the launch room players can enter the elevator as seen in the following image.
+
 ![tribute tube](images/tribute_tube.png)
 *Entrance of the tribute tube viewed from within the launch room*
 
-### Arena Elevator
+### Elevator
 
 
 ## Start
@@ -46,12 +48,11 @@ These items can be picked up by interacting with the entity. The default Minecra
 ### Loot table
 All items in the arena are picked based on the same loot table, which is stored in the [arena world](#arena-world) data pack. The items are placed at loot markers on the reset trigger.
 
-
 ## Reset
 At any moment the arena can be reset to allow for a new match to ready itself. During the reset arena entities are removed, sweet berry bushes are grown to be pluckable and campfires are unlit.
 
 > [!NOTE]
-> Only sweet berry bushes and campfires that have a special marker placed at them are reset, see the [placing markers](#placing-markers) section for how to place these markers.
+> Only sweet berry bushes and campfires that are set with the data pack are reset, see the [placing world objects](#placing-world-objects) section for how to setup new objects in the arena.
 
 ![campfire](images/campfire.png)
 *Outer area of the arena with a campfire next to a creek*
@@ -69,7 +70,6 @@ The [arena item](world/datapacks/arena_item_v1.12) data pack manages player rela
 
 ## Arena world
 The [arena world](world/datapacks/arena_world_v1.13) data pack contains functionality for controlling the world for the arena.
-
 
 # Controls
 Various function of the [data packs](#data-packs) can be used to setup and manage the arena.
@@ -108,7 +108,7 @@ For making sponsering of players easier during a physical local server event som
 In order to ease the control of the arena the following triggers are made for gamemakers to use. The [arena action](#arena-action) will take care to update the state of the arena accordingly.
 
 ### Reset
-Restores the arena to a 'clean' state that is prepared to be made ready for a game. An ideal state to adjust data before starting the game.
+Restores the arena to a 'clean' state that is prepared to be made ready for a game. An ideal state to [adjust data](#adjust-data) before starting the game.
 
 ### Launch
 Starts the arena by launching tributes inside a tribute tube into the arena. After the tributes have been lifted and the countdown finished the games have begun.
@@ -129,7 +129,10 @@ Further more animal spawn location can be marked by using the following command 
 
 #### Mark animal spawn location
     \function arena_world:animal/[land | water]
-    
+
+## Adjust data
+The [data packs](#data-packs) set default data that can be adjusted manually. Changing data is completly optional, but allows modification of behavior without having to modify the data pack files. Data that can be adjusted can be inspected by running the `\data get storage` command.
+
 ## Additional functions
 
 Other functions that can be used from the [data packs](#data-packs) include a function to spawn an angry wolf as a threat to the players.
