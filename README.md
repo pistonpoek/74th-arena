@@ -191,5 +191,3 @@ Other functions that can be used from the [data packs](#data-packs) include a fu
 
 
 [^1]: I would be pleased to hear better references to the originial world author Flashness or the original upload for the world used.
-
-[Minecraft]: 
