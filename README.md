@@ -16,7 +16,7 @@ This repository contains a [Minecraft][minecraft] world that is inspired by the 
 [74th-hunger-games-arena]: https://thehungergames.fandom.com/wiki/74th_Hunger_Games_arena "74th Hunger Games Arena (fandom wiki)"
 
 # Terrain
-The original [world][the-hunger-games-arena-map] makes up the exterior terrain for the arena, which was made by Flashness[^1]. I extended the world with the underground catacombs and launch rooms for tributes to enter the arena from as seen in the following images.
+The original [world][the-hunger-games-arena-map] makes up the exterior terrain for the arena, which was made by Flashness. I extended the world with the underground catacombs and launch rooms for tributes to enter the arena from as seen in the following images.
 
 [![catacombs](images/catacombs.png)][catacombs]
 *Hallway in the catacombs leading to the launch room of tribute 1*
@@ -24,7 +24,7 @@ The original [world][the-hunger-games-arena-map] makes up the exterior terrain f
 [![launch room](images/launch_room.png)][launch-room]
 *Launch room with door looking at a table that has a tribute token item placed upon it*
 
-[the-hunger-games-arena-map]: https://www.9minecraft.net/the-hunger-games-arena-map "The hunger games arena map (9minecraft)"
+[the-hunger-games-arena-map]: https://sketchfab.com/3d-models/the-hunger-games-arena-8735e8c171254663bd7db82878915190 "The hunger games arena model (Sketchfab)"
 [catacombs]: https://thehungergames.fandom.com/wiki/Catacombs "Hunger games catacombs (fandom wiki)"
 [launch-room]: https://thehungergames.fandom.com/wiki/Launch_Room "Hunger games launch room (fandom wiki)"
 
@@ -78,7 +78,7 @@ The [arena action][arena-action-data-pack] data pack manages player related func
 The [arena elevator][arena-elevator-data-pack] data pack provides an elevator for the arena. An elevator can be [created](#create-elevator-function) and [removed](#remove-elevator-function). Of course an elevator can also [lift](#lift-function) players inside.
 
 #### [Create elevator function](world/datapacks/arena_elevator_v1.13/data/arena_elevator/function/create.mcfunction)
-    /execute positioned ~ ~ ~ arena_world:create {block:$block_name%, height:%height%}
+    /execute positioned ~ ~ ~ arena_world:create {block:%block_name%, height:%height%}
 
 #### [Remove elevator function](world/datapacks/arena_elevator_v1.13/data/arena_elevator/function/remove.mcfunction)
     /execute as @n[predicate=arena_elevator:arena_elevator] run function arena_elevator:remove
@@ -107,7 +107,7 @@ The [arena world][arena-world-data-pack] data pack contains functionality for co
 [arena-world-data-pack]: world/datapacks/arena_world_v1.13 "Arena world v1.13"
 
 # Controls
-Various function of the [data packs](#data-packs) can be used to setup and manage the arena.
+Various functions of the [data packs](#data-packs) can be used to setup and manage the arena.
 
 ## Players
 The [arena action](#arena-action) includes functions to manage players for the arena.
@@ -158,7 +158,7 @@ Announces the winner of the games by checking for alive tributes. Additionally t
 Special objects can be placed in the arena using the [arena world](#arena-world) data pack. The objects, [`berry_bush`][make-berry-bush], [`campfire`][make-campfire], [`countdown`][make-countdown], [`elevator`][make-elevator], [`loot`][make-loot], [`start_position`][make-start-position] and [`token`][make-token] can be made using the following function by replacing the respective name.
 
 #### Make function
-    /function arena_world:name/make
+    /function arena_world:%name%/make
 
 Further more animal spawn location can be marked by using the following command for either a [`land`][make-land] or [`water`][make-water] spawn position.
 
@@ -188,6 +188,3 @@ Other functions that can be used from the [data packs](#data-packs) include a fu
 
 #### [Spawn threat function](world/datapacks/arena_world_v1.13/data/arena_world/function/threat/wolf/spawn.mcfunction)
     /function arena_world:threat/wolf/spawn
-
-
-[^1]: I would be pleased to hear better references to the originial world author Flashness or the original upload for the world used.
