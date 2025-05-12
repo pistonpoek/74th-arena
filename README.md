@@ -24,7 +24,7 @@ The original [world][the-hunger-games-arena-map] makes up the exterior terrain f
 [![launch room](images/launch_room.png)][launch-room]
 *Launch room with door looking at a table that has a tribute token item placed upon it*
 
-[the-hunger-games-arena-map]: https://sketchfab.com/3d-models/the-hunger-games-arena-8735e8c171254663bd7db82878915190 "The hunger games arena model (Sketchfab)"
+[the-hunger-games-arena-map]: https://www.planetminecraft.com/project/the-hunger-games-arena-map-download "The hunger games arena world (planetminecraft)"
 [catacombs]: https://thehungergames.fandom.com/wiki/Catacombs "Hunger games catacombs (fandom wiki)"
 [launch-room]: https://thehungergames.fandom.com/wiki/Launch_Room "Hunger games launch room (fandom wiki)"
 
